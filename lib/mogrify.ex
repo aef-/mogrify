@@ -40,6 +40,7 @@ defmodule Mogrify do
   """
   def create(image, opts \\ []) do
     output_path = output_path_for(image, opts)
+    IO.inspect  arguments_for_creating(image, output_path)
     System.cmd("convert", arguments_for_creating(image, output_path), stderr_to_stdout: true)
     image_after_command(image, output_path)
   end
